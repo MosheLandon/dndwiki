@@ -1,0 +1,170 @@
+body {
+   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+   font-size: 14px;
+   line-height: 1.42857143;
+   color: #333;
+}
+
+a {
+   text-decoration: none;
+}
+
+header {
+   background-color: #786B3D;
+   color: #ECE9E4;
+   height: 250px;
+}
+
+header a {
+   color: #ECE9E4;
+}
+
+header div {
+   position: relative;
+   width: 1170px;/*>768:750, >992:970, >1200:1170*/
+   padding-right: 15px;
+   padding-left: 15px;
+   margin-right: auto;
+   margin-left: auto;
+}
+
+header .header {
+   display: inline-block;
+}
+
+header .header h1 {
+   font-size: 36px;
+   letter-spacing: 1px;
+   font-weight: 500;
+   margin-top: 20px;
+   margin-bottom: 0;
+}
+
+header .header h2 {
+   text-align: center;
+   font-size: 14px;
+   letter-spacing: 2px;
+   font-weight: 500;
+   line-height: 1.1;
+   margin-bottom: 0;
+}
+
+header .top_nav {
+   height: 60px;
+   /* padding-top: 20px; */
+   font-size: 18px;
+   line-height: 20px;
+   display: flex;
+   justify-content: space-between;
+   /* border: 1px solid green; */
+}
+
+.top_nav .home {
+   width: 200px;
+   padding-top: 30px;
+   /* border: 1px solid orange; */
+}
+
+.top_nav .main_nav {
+   align-self: center;
+   /* border: 1px solid green; */
+}
+
+.top_nav .main_nav a figure {
+   margin: 0 10px;
+   position: relative;
+   translate: 0 -15px;
+   align-items: center;
+   /* display: flex; */
+   /* border: 1px solid orange; */
+}
+
+.main_nav img {
+   width: 40px;
+   height: 40px;
+   padding: 10px;
+   border-radius: 30px;
+   background-color: #FFE68C;
+   box-shadow: 0 2px 4px 1px rgba(0,0,0,.2);
+   /* border: 1px solid green; */
+}
+
+.top_nav figcaption {
+   /* text-align: center; */
+   /* align-self: center; */
+   /* padding-left: 5px; */
+   color: black;
+   font-weight: 600;
+   display: none;
+   position: absolute;
+   bottom: 0;
+   /* border: 1px solid green; */
+   /* display: none; */
+}
+
+.top_nav figure:hover img {
+   transition: all 0.5s linear;
+   transform: scale(0.9) translateY(-5px);
+}
+
+.top_nav figure:hover figcaption {
+   transition: all 1s linear;
+   /* display: block; */
+}
+
+nav.main_nav {
+   display: flex;
+   justify-content: space-around;
+}
+
+main {
+   background-color: #FFFDF1;
+}
+
+.main {
+   background-color: white;
+   box-shadow: 0 2px 4px 1px rgba(0,0,0,.2);
+   position: relative;
+   top: -110px;
+   border-radius: 4px;
+   padding-bottom: 15px;
+   width: 1170px;/*>768:750, >992:970, >1200:1170*/
+   padding-right: 15px;
+   padding-left: 15px;
+   margin-right: auto;
+   margin-left: auto;
+   /* height: 500px; */
+   display: grid;
+   grid-template-columns: 4fr 1fr;
+   grid-gap: 1em;
+}
+
+.main h1 {
+   font-size: 32px;
+   border-bottom: 3px solid #786B3D;
+   margin: 15px 0 1em 0;
+   padding: 0;
+   line-height: 1.25em;
+   font-weight: 500;
+}
+
+.main h1 span {
+   background: url(images/border_theme_left.png) bottom left no-repeat, url(images/border_theme_right.png) bottom right no-repeat, url(images/border_theme_center.png) bottom left repeat-x;
+   display: inline-block;
+   line-height: 1.25em;
+   height: calc(1.25em + 8px);
+   margin-bottom: -8px;
+   padding-right: 3px;
+}
+
+aside {
+   min-width: 200px;
+   margin-top: 54px;
+   border: 1px solid #CCC;
+   border-radius: 4px;
+   padding: 0.5em 1em;
+}
+
+aside p {
+   letter-spacing: 1px;
+}
