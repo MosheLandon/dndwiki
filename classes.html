@@ -8,7 +8,9 @@
    <link rel="stylesheet" href="reset.css">
    <link rel="stylesheet" href="main.css">
    <script src="https://kit.fontawesome.com/5be980320d.js" crossorigin="anonymous"></script>
+   <script src="jquery-3.1.1.min.js"></script>
 </head>
+
 <body>
    <header>
       <div>
@@ -18,16 +20,25 @@
          </section>
 
          <section class="top_nav">
-            <section class="home">
-               <a href="index.html">Home</a>
-            </section>
+            <nav class="home">
+               <a href="index.html">
+                  <figure>
+                     <img src="images/house-solid.svg" alt="Home">
+                     <figcaption>Home</figcaption>
+                     <img src="images/house-solid.svg" alt="Home" class="after_img">
+                  </figure>
+               </a>
+            </nav>
 
             <nav class="main_nav">
+
+               <!-- Change Nav to Include Drop-Down Sub-Navs -->
 
                <a href="rules.html">
                   <figure>
                      <img src="images/book-solid.svg" alt="Rules">
                      <figcaption>Rules</figcaption>
+                     <img src="images/book-solid.svg" alt="Home" class="after_img">
                   </figure>
                </a>
 
@@ -35,6 +46,7 @@
                   <figure>
                      <img src="images/wand-magic-sparkles-solid.svg" alt="Classes">
                      <figcaption>Classes</figcaption>
+                     <img src="images/wand-magic-sparkles-solid.svg" alt="Home" class="after_img">
                   </figure>
                </a>
    
@@ -42,6 +54,7 @@
                   <figure>
                      <img src="images/users-solid.svg" alt="Species">
                      <figcaption>Species</figcaption>
+                     <img src="images/users-solid.svg" alt="Home" class="after_img">
                   </figure>
                </a>
    
@@ -49,6 +62,7 @@
                   <figure>
                      <img src="images/landmark-solid.svg" alt="Backgrounds">
                      <figcaption>Backgrounds</figcaption>
+                     <img src="images/landmark-solid.svg" alt="Home" class="after_img">
                   </figure>
                </a>
    
@@ -56,8 +70,27 @@
                   <figure>
                      <img src="images/unlock-solid.svg" alt="Feats">
                      <figcaption>Feats</figcaption>
+                     <img src="images/unlock-solid.svg" alt="Home" class="after_img">
                   </figure>
                </a>
+
+               <a href="#" class="hamburger" id="close">
+                  <figure><figcaption>&#9776;</figcaption></figure>
+               </a>
+               <script>
+                  $(".hamburger").click(function() {
+                     if($(this).attr("id")==="close") {
+                        $(this).attr("id", "open");
+                        $(this).find("figcaption").css("rotate", "90deg");
+                        $(".top_nav a figure").css("display", "flex");
+                     }else if($(this).attr("id")==="open") {
+                        $(this).attr("id", "close");
+                        $(this).find("figcaption").css("rotate", "0deg");
+                        $(".top_nav a figure").css("display", "none");
+                        $(".top_nav a.hamburger figure").css("display", "flex");
+                     }
+                  });
+               </script>
             </nav>
          </section>
       </div>
@@ -68,21 +101,70 @@
          <div>
             <!--Main Page Content-->
 
+
+
             <h1><span>Classes</span></h1>
 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quisquam, eligendi velit placeat a iure unde error sequi ullam soluta sapiente repudiandae eum nostrum? Labore, fugit explicabo! Voluptatibus, porro ipsam!</p>
-            <p>Eaque, dolorem vitae! Recusandae, esse nobis? Tempore expedita, dicta tempora nam maxime deleniti libero iure quo, quis sequi similique, dignissimos iusto amet eveniet debitis repellendus accusantium recusandae aliquam non error.</p>
-            <p>Ea quidem debitis nostrum dolores minima odit, at harum sint voluptas labore quis libero, fugit tenetur voluptatem, eveniet consequatur. Beatae corporis explicabo fugit dicta! Ea minima eos id rerum veniam.</p>
-            <p>Repudiandae asperiores commodi ipsum perferendis illo maiores distinctio, aut ad consequatur consequuntur aliquid! Eligendi placeat voluptatibus sequi, consectetur tempora libero ut quae vero culpa reprehenderit itaque aperiam eveniet similique pariatur.</p>
-            <p>Aliquid asperiores quasi corrupti molestias distinctio veniam quas consectetur vitae numquam delectus. Autem cumque nihil, pariatur quod labore, velit ipsum totam eum quibusdam dolorem adipisci! Sequi rem beatae perspiciatis corrupti.</p>
+            <aside>
+               <section class="toc">
+                  <div>Table of Contents</div>
+   
+                  <span class="up" style="font-size: 10px; color: #786B3D;"><i class="fa-solid fa-turn-up"></i></span>
+                  <script>
+                     $("span.up").click(function() {
+                     $("span.up").css("display", "none");
+                     $("span.down").css("display", "inline");
+                     $("aside ul").css("display", "none");});
+                  </script>
+                  
+                  <span class="down" style="font-size: 10px; color: #786B3D;"><i class="fa-solid fa-turn-down"></i></span>
+                  <script>
+                     $("span.down").click(function() {
+                     $("span.down").css("display", "none");
+                     $("span.up").css("display", "inline");
+                     $("aside ul").css("display", "block");});
+                  </script>
+               </section>
+   
+               <ul>
+                  
+               </ul>
+            </aside>
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores aspernatur error voluptatum aperiam deleniti, maxime at totam! Commodi voluptatum ducimus sequi ut animi, officiis quisquam saepe, possimus nesciunt dolorem repellat.</p>
+            <p>Odio fugit minus, excepturi reiciendis facilis dolorem doloremque doloribus quia temporibus nesciunt officiis asperiores porro labore quos beatae quo nihil eos? Quia laborum commodi corrupti provident. Ullam nihil libero asperiores?</p>
+            <p>Numquam amet voluptates deleniti, sed inventore maxime debitis. Voluptas necessitatibus maxime rem placeat sunt at pariatur. Officiis, aperiam dolorem aut vero aliquam, ipsam quod voluptatem corrupti, temporibus soluta placeat libero.</p>
+            <p>Soluta cum, nisi blanditiis eveniet nemo nulla, labore explicabo veniam quidem libero ab maxime at sint vero accusamus? Iure expedita pariatur doloremque ut nihil deleniti, suscipit et commodi molestiae distinctio!</p>
+            <p>Hic consequatur rerum assumenda iure. Hic harum, accusamus voluptatum itaque accusantium ipsum? Vitae facilis, quae, amet, quasi deserunt at voluptatem numquam commodi eius veniam minus non facere excepturi quidem quos?</p>
+
          </div>
+
 
          <aside>
             <section class="toc">
                <div>Table of Contents</div>
+
+               <span class="up" style="font-size: 10px; color: #786B3D;"><i class="fa-solid fa-turn-up"></i></span>
+               <script>
+                  $("span.up").click(function() {
+                  $("span.up").css("display", "none");
+                  $("span.down").css("display", "inline");
+                  $("aside ul").css("display", "none");});
+               </script>
+               
+               <span class="down" style="font-size: 10px; color: #786B3D;"><i class="fa-solid fa-turn-down"></i></span>
+               <script>
+                  $("span.down").click(function() {
+                  $("span.down").css("display", "none");
+                  $("span.up").css("display", "inline");
+                  $("aside ul").css("display", "block");});
+               </script>
             </section>
-            <ul></ul>
-         </aside><!--Page Nav-->
+
+            <ul>
+               
+            </ul>
+         </aside>
       </div>
    </main>
 </body>

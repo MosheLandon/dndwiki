@@ -8,7 +8,9 @@
    <link rel="stylesheet" href="reset.css">
    <link rel="stylesheet" href="main.css">
    <script src="https://kit.fontawesome.com/5be980320d.js" crossorigin="anonymous"></script>
+   <script src="jquery-3.1.1.min.js"></script>
 </head>
+
 <body>
    <header>
       <div>
@@ -18,16 +20,25 @@
          </section>
 
          <section class="top_nav">
-            <section class="home">
-               <a href="index.html">Home</a>
-            </section>
+            <nav class="home">
+               <a href="index.html">
+                  <figure>
+                     <img src="images/house-solid.svg" alt="Home">
+                     <figcaption>Home</figcaption>
+                     <img src="images/house-solid.svg" alt="Home" class="after_img">
+                  </figure>
+               </a>
+            </nav>
 
             <nav class="main_nav">
+
+               <!-- Change Nav to Include Drop-Down Sub-Navs -->
 
                <a href="rules.html">
                   <figure>
                      <img src="images/book-solid.svg" alt="Rules">
                      <figcaption>Rules</figcaption>
+                     <img src="images/book-solid.svg" alt="Home" class="after_img">
                   </figure>
                </a>
 
@@ -35,6 +46,7 @@
                   <figure>
                      <img src="images/wand-magic-sparkles-solid.svg" alt="Classes">
                      <figcaption>Classes</figcaption>
+                     <img src="images/wand-magic-sparkles-solid.svg" alt="Home" class="after_img">
                   </figure>
                </a>
    
@@ -42,6 +54,7 @@
                   <figure>
                      <img src="images/users-solid.svg" alt="Species">
                      <figcaption>Species</figcaption>
+                     <img src="images/users-solid.svg" alt="Home" class="after_img">
                   </figure>
                </a>
    
@@ -49,6 +62,7 @@
                   <figure>
                      <img src="images/landmark-solid.svg" alt="Backgrounds">
                      <figcaption>Backgrounds</figcaption>
+                     <img src="images/landmark-solid.svg" alt="Home" class="after_img">
                   </figure>
                </a>
    
@@ -56,8 +70,27 @@
                   <figure>
                      <img src="images/unlock-solid.svg" alt="Feats">
                      <figcaption>Feats</figcaption>
+                     <img src="images/unlock-solid.svg" alt="Home" class="after_img">
                   </figure>
                </a>
+
+               <a href="#" class="hamburger" id="close">
+                  <figure><figcaption>&#9776;</figcaption></figure>
+               </a>
+               <script>
+                  $(".hamburger").click(function() {
+                     if($(this).attr("id")==="close") {
+                        $(this).attr("id", "open");
+                        $(this).find("figcaption").css("rotate", "90deg");
+                        $(".top_nav a figure").css("display", "flex");
+                     }else if($(this).attr("id")==="open") {
+                        $(this).attr("id", "close");
+                        $(this).find("figcaption").css("rotate", "0deg");
+                        $(".top_nav a figure").css("display", "none");
+                        $(".top_nav a.hamburger figure").css("display", "flex");
+                     }
+                  });
+               </script>
             </nav>
          </section>
       </div>
@@ -68,21 +101,476 @@
          <div>
             <!--Main Page Content-->
 
+
+
             <h1><span>Rules Glossary</span></h1>
 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quisquam, eligendi velit placeat a iure unde error sequi ullam soluta sapiente repudiandae eum nostrum? Labore, fugit explicabo! Voluptatibus, porro ipsam!</p>
-            <p>Eaque, dolorem vitae! Recusandae, esse nobis? Tempore expedita, dicta tempora nam maxime deleniti libero iure quo, quis sequi similique, dignissimos iusto amet eveniet debitis repellendus accusantium recusandae aliquam non error.</p>
-            <p>Ea quidem debitis nostrum dolores minima odit, at harum sint voluptas labore quis libero, fugit tenetur voluptatem, eveniet consequatur. Beatae corporis explicabo fugit dicta! Ea minima eos id rerum veniam.</p>
-            <p>Repudiandae asperiores commodi ipsum perferendis illo maiores distinctio, aut ad consequatur consequuntur aliquid! Eligendi placeat voluptatibus sequi, consectetur tempora libero ut quae vero culpa reprehenderit itaque aperiam eveniet similique pariatur.</p>
-            <p>Aliquid asperiores quasi corrupti molestias distinctio veniam quas consectetur vitae numquam delectus. Autem cumque nihil, pariatur quod labore, velit ipsum totam eum quibusdam dolorem adipisci! Sequi rem beatae perspiciatis corrupti.</p>
+            <aside>
+               <section class="toc">
+                  <div>Table of Contents</div>
+   
+                  <span class="up" style="font-size: 10px; color: #786B3D;"><i class="fa-solid fa-turn-up"></i></span>
+                  <script>
+                     $("span.up").click(function() {
+                     $("span.up").css("display", "none");
+                     $("span.down").css("display", "inline");
+                     $("aside ul").css("display", "none");});
+                  </script>
+                  
+                  <span class="down" style="font-size: 10px; color: #786B3D;"><i class="fa-solid fa-turn-down"></i></span>
+                  <script>
+                     $("span.down").click(function() {
+                     $("span.down").css("display", "none");
+                     $("span.up").css("display", "inline");
+                     $("aside ul").css("display", "block");});
+                  </script>
+               </section>
+   
+               <ul>
+                  <li class="ind"><a href="#character_origins">Character Origins</a></li>
+                     <li class="ind"><a class="ind" href="#co_arcane_spells">Arcane Spells</a></li>
+                     <li class="ind"><a class="ind" href="#co_artisans_tools">Artisan&#39;s Tools</a></li>
+                     <li class="ind"><a class="ind" href="#co_creature_type">Creature Type</a></li>
+                     <li class="ind"><a class="ind" href="#co_d20_test">D20 Test</a></li>
+                     <li class="ind"><a class="ind" href="#co_divine_spells">Divine Spells</a></li>
+                     <li class="ind"><a class="ind" href="#co_gaming_set">Gaming Set</a></li>
+                     <li class="ind"><a class="ind" href="#co_grappled">Grappled</a></li>
+                     <li class="ind"><a class="ind" href="#co_incapacitated">Incapacitated</a></li>
+                     <li class="ind"><a class="ind" href="#co_inspiration">Inspiration</a></li>
+                     <li class="ind"><a class="ind" href="#co_long_rest">Long Rest</a></li>
+                     <li class="ind"><a class="ind" href="#co_musical_instrument">Musical Instrument</a></li>
+                     <li class="ind"><a class="ind" href="#co_primal_spells">Primal Spells</a></li>
+                     <li class="ind"><a class="ind" href="#co_slowed">Slowed</a></li>
+                     <li class="ind"><a class="ind" href="#co_tool_proficiency">Tool Proficiency</a></li>
+                     <li class="ind"><a class="ind" href="#co_tremorsense">Tremorsense</a></li>
+                     <li class="ind"><a class="ind" href="#co_unarmed_strike">Unarmed Strike</a></li>
+               </ul>
+            </aside>
+
+            <h2 id="character_origins">Character Origins
+               <div></div>
+            </h2>
+            <p>This glossary includes game terms that have new or revised meaning in these playtest rules, as well as terms, such as <a href="#co_creature_type">Creature Type</a>,that aren&#39;t defined in the 2014 <i>Player&#39;s Handbook</i>.The terms are organized alphabetically.</p>
+            <p>If a term doesn&#39;t appear here, use its definition in the 2014 <i>Player&#39;s Handbook</i>, and when playtesting this document, do not use the rules glossary of any other <i>Unearthed Arcana</i> article.</p>
+
+            <h3 id="co_arcane_spells"><span>Arcane Spells</span></h3>
+            <p>An <a href="">Arcane Spell</a> draws on the ambient magic of the multiverse. <a href="">Bards</a>, <a href="">Sorcerers</a>, <a href="">Warlocks</a>, and <a href="">Wizards</a> harness this magic, as do <a href="">Artificers</a>.</p>
+
+            <h3 id="co_artisans_tools"><span>Artisan&#39;s Tools</span></h3>
+            <p>Artisan&#39;s Tools are a category of tool with which a character can gain <a href="#co_tool_proficiency">Tool Proficiency</a>. For a list of Artisan&#39;s Tools, see the 2014 <i>Player&#39;s Handbook</i>, but ignore the prices there; those tools now cost 15 <abbr title="gold pieces">GP</abbr> apiece.</p>
+
+            <h3 id="co_creature_type"><span>Creature Type</span></h3>
+            <p>Every creature in <abbr title="Dungeons & Dragons">D&#38;D</abbr>, including every player character, has a special tag in the rules that identifies the type of creature they are. Most player characters are of the Humanoid type.<br>Here&#39;s a list of the game&#39;s Creature Types in alphabetical order:</p>
+            <table class="t1">
+               <caption>Creature Types</caption>
+               <tr>
+                  <td>Aberration</td>
+                  <td>Beast</td>
+                  <td>Celestial</td>
+                  <td>Construct</td>
+               </tr>
+               <tr>
+                  <td>Dragon</td>
+                  <td>Elemental</td>
+                  <td>Fey</td>
+                  <td>Fiend</td>
+               </tr>
+               <tr>
+                  <td>Giant</td>
+                  <td>Humanoid</td>
+                  <td>Monstrosity</td>
+                  <td>Ooze</td>
+               </tr>
+               <tr>
+                  <td>Plant</td>
+                  <td>Undead</td>
+                  <td></td>
+                  <td></td>
+               </tr>
+            </table>
+            <p>These types don&#39;t have rules themselves, but some rules in the game affect creatures of certain types in different ways. For example, the description of <a href=""><i>Cure Wounds</i></a> specifies that the Spell doesn&#39;t benefit a Construct.</p>
+
+            <h3 id="co_d20_test"><span>D20 Test</span></h3>
+            <p>The term d20 Test encompasses the three main d20 rolls of the game: ability checks, attack rolls, and saving throws. If something in the game affects d20 Tests, it affects all three of those rolls.</p>
+            <p>The <abbr title="Dungeon Master">DM</abbr> determines whether a d20 Test is warranted in any given circumstance.To be warranted, a d20 Test must have a target number no less than 5 and no greater than 30.</p>
+            <h4>Rolling a 1</h4>
+            <p>If you roll a 1 on the d20, the d20 Test automatically fails, regardless of any modifiers to the roll.</p>
+            <h4>Rolling a 20</h4>
+            <p>If you roll a 20 on the d20, the d20 Test automatically succeeds, regardless of any modifiers to the roll. A player character also gains <a href="#co_inspiration">Inspiration</a> when rolling the 20, thanks to the remarkable success.</p>
+            <p>Rolling a 20 doesn&#39;t bypass limitations on the test, such as range and line of sight. The 20 bypasses only bonuses and penalties to the roll.</p>
+            <h3>Critical Hits</h3>
+            <p>Weapons and <a href="#co_unarmed_strike">Unarmed Strikes</a> have a special feature for player characters: Critical Hits. If a player character rolls a 20 for an attack roll with a Weapon or an Unarmed Strike, the attack is also a Critical Hit, which means it deals extra damage to the target; you roll the damage dice of the Weapon or Unarmed Strike a second time and add the second roll as extra damage to the target. For example, a Mace deals Bludgeoning Damage equal to 1d6 + your Strength modifier. If you score a Critical Hit with the Mace, it instead deals 2d6 + your Strength modifier.</p>
+            <p>If your Weapon or Unarmed Strike has no damage dice, it deals no extra damage on a Critical Hit.</p>
+
+            <h3 id="co_divine_spells"><span>Divine Spells</span></h3>
+            <p>A <a href="">Divine Spell</a> draws on the power of gods and the Outer Planes. Clerics and Paladins harness this magic.</p>
+
+            <h3 id="co_gaming_set"><span>Gaming Set</span></h3>
+            <p>Gaming Sets are a category of tool with which a character can gain Tool Proficiency. For a list of Gaming Sets, see the 2014 <i>Player&#39s;s Handbook</i>, but ignore the prices there; those sets now cost 1 <abbr title="gold piece">GP</abbr> apiece.</p>
+
+            <h3 id="co_grappled"><span>Grappled [Condition]</span></h3>
+            <p>While you are Grappled, you experience the following effects:</p>
+            <p class="ind"><b>&bull; Speed 0.</b> Your speed is 0 and can&#39;t change.</p>
+            <p class="ind"><b>&bull; Attacks Affected.</b> You have Disadvantage on attack rolls against any target other than the grappler.</p>
+            <p class="ind"><b>&bull; Movable.</b> The grappler can drag or carry you, but the grappler suffers the <a href="#co_slowed">Slowed Condition</a> while moving, unless you are Tiny or two or more Sizes smaller than the grappler.</p>
+            <p class="ind"><b>&bull; Escape.</b> While Grappled, you can make a Dexterity or Strength saving throw against the grapple&#39;s escape <abbr title="Difficulty Class">DC</abbr> at the end of each of your turns, ending the Condition on yourself on a success. The Condition also ends if the grappler is <a href="#co_incapacitated">Incapacitated</a> or if something moves you outside the grapple&#39;s range without using your Speed.</p>
+
+            <h3 id="co_incapacitated"><span>Incapacitated [Condition]</span></h3>
+            <p>While you are Incapacitated, you experience the following effects:</p>
+            <p class="ind"><b>&bull; Inactive.</b> You can&#39;t take Actions or Reactions.</p>
+            <p class="ind"><b>&bull; No Concentration.</b> Your Concentration is broken.</p>
+            <p class="ind"><b>&bull; Speechless.</b>You can&#39;t speak.</p>
+            <p class="ind"><b>&bull; Surprised.</b> If you are Incapacitated when you roll Initiative, you have Disadvantage on the roll.</p>
+
+            <h3 id="co_inspiration"><span>Inspiration</span></h3>
+            <p>When you have Inspiration, you can expend it to give yourself Advantage on a d20 Test. You must decide to do so before rolling the die.</p>
+            <h4>Gaining Inspiration</h4>
+            <p>The main way a character gains Inspiration is by rolling a 20 for a d20 Test. The <abbr title="Dungeon Master">DM</abbr> can also award Inspiration to a character who&#39;s done something that is particularly heroic or amusing.</p>
+            <h4>Only One at a Time</h4>
+            <p>You can never have more than one instance of Inspiration. If something gives you Inspiration and you already have it, you can give Inspiration to a player character in your group who lacks it.</p>
+            <h4>Losing Inspiration</h4>
+            <p>If you still have Inspiration when you start a <a href="#co_long_rest">Long Rest</a>, you lose that Inspiration.</p>
+
+            <h3 id="co_long_rest"><span>Long Rest</span></h3>
+            <p>A Long Rest is a period of extended downtime—at least 8 hours long—during which a creature sleeps for at least 6 hours and performs no more than 2 hours of light activity, such as reading, talking, eating, or standing watch.
+            </p>
+            <h4>Benefits of the Rest</h4>
+            <p>At the end of a Long Rest, a creature regains all lost Hit Points. The creature also regains spent Hit Dice, up to half of the creature&#39;s total number of them (round down; minimum of one die).</p>
+            <p>A creature can&#39;t benefit from more than one Long Rest in a 24-hour period, and a creature must have at least 1 Hit Point at the start of the rest to gain its benefits.</p>
+            <h4>Interrupting the Rest</h4>
+            <p>If a Long Rest is interrupted by combat or by 1 hour of walking, casting Spells, or similar activity, the rest confers no benefit and must be restarted; however, if the rest was at least 1 hour long before the interruption, the creature gains the benefits of a Short Rest.</p>
+
+            <h3 id="co_musical_instrument"><span>Musical Instrument</span></h3>
+            <p>Musical Instruments are a category of tool with which a character can gain <a href="#co_tool_proficiency">Tool Proficiency</a>. For a list of Musical Instruments, see the 2014 <i>Player&#39;s Handbook</i>, but ignore the prices there; those instruments now cost 20 <abbr title="gold pieces">GP</abbr> apiece.</p>
+
+            <h3 id="co_primal_spells"><span>Primal Spells</span></h3>
+            <p>A <a href="">Primal Spell</a> draws on the forces of nature and the Inner Planes. Druids and Rangers harness this magic. </p>
+
+            <h3 id="co_slowed"><span>Slowed [Condition]</span></h3>
+            <p>Whileyou are Slowed, you experience the following effects:</p>
+            <p class="ind"><b>&bull; Limited Movement.</b> You must spend 1 extra foot of movement for every foot you move using your Speed.</p>
+            <p class="ind"><b>&bull; Attacks Affected.</b> Attack rolls against you have Advantage.</p>
+            <p class="ind"><b>&bull; Dexterity Saves Affected.</b> You have Disadvantage on Dexterity saving throws.</p>
+
+            <h3 id="co_tool_proficiency"><span>Tool Proficiency</span></h3>
+            <p>If you have Proficiency with a tool, you can add your Proficiency Bonus to any ability check you make that uses that tool. If you have Proficiency in the Skill that&#39;s also used with that check, you have Advantage on the check too. This functionality means you can benefit from both Skill Proficiency and Tool Proficiency on the same ability check.</p>
+
+            <h3 id="co_tremorsense"><span>Tremorsense</span></h3>
+            <p>A creature with Tremorsense can pinpoint the location of creatures and moving objects within a specific range, provided that the creature with Tremorsense and anything it&#39;s detecting are both in contact with the same surface (such as the ground, a wall, or a ceiling) or the same liquid.</p>
+            <p>Tremorsense can&#39;t detect creatures or objects in the air, and Tremorsense doesn&#39;t count as a form of sight.</p>
+
+            <h3 id="co_unarmed_strike"><span>Unarmed Strike</span></h3>
+            <p>An Unarmed Strike is a melee attack that involves you using your body to damage, grapple, or shove a target within your Reach.</p>
+            <p>Your bonus to hit with an Unarmed Strike equals your Strength modifier plus your Proficiency Bonus. On a hit, your Unarmed Strike causes one of the following effects of your choice:</p>
+            <p class="ind"><b>&bull; Damage.</b> The target takes Bludgeoning Damage equal to 1 + your Strength modifier.</p>
+            <p class="ind"><b>&bull; Grapple.</b> The target is <a href="#co_grappled">Grappled</a>, and the grapple&#39;s escape DC equals 8 + your Strength modifier + your Proficiency Bonus. This grapple is possible only if the target is no more than one Size larger than you and if you have a hand free to grab the target.</p>
+            <p class="ind"><b>&bull; Shove.</b> You either push the target 5 feet away or knock the target Prone. This shove is possible only if the target is no more than one Size larger than you.</p>
+
+
+            <h2 id="expert_classes">Expert Classes
+               <div></div>
+            </h2>
+            <p>This glossary includes game terms that have new or revised meaning in these playtest rules, as well as terms, such as <a href="#ec_creature_type">Creature Type</a>,that aren&#39;t defined in the 2014 <i>Player&#39;s Handbook</i>.The terms are organized alphabetically.</p>
+            <p>If a term doesn&#39;t appear here, use its definition in the 2014 <i>Player&#39;s Handbook</i>, and when playtesting this document, do not use the rules glossary of any other <i>Unearthed Arcana</i> article.</p>
+
+            <h3 id="ec_ability_check"><span>Ability Check</span></h3>
+            <p>The Ability Check is one of three types of <a href="#ec_d20_test">d20 Tests</a>. The rules often call for an Ability Check, and the <abbr title="Dungeon Master">DM</abbr> can also call for an Ability Check, determining which ability to use when a creature attempts something (other than an Attack Roll or a Saving Throw) that has a chance of meaningful failure. When the outcome is uncertain and narratively interesting, the dice determine the results.</p>
+            <p>The Ability Check has the following special rules:</p>
+            <h4>Skills</h4>
+            <p>When you make an Ability Check, the rules or the <abbr title="Dungeon Master">DM</abbr> determines whether a Skill Proficiency is relevant to the check. If you have a relevant Skill Proficiency, you can add your Proficiency Bonus to the roll. For example, if a rule refers to a Strength Check (Acrobatics or Athletics), you can add your Proficiency Bonus to the check if you have Acrobatics or Athletics Proficiency.</p>
+            <h4>Action Required</h4>
+            <p>Making an Ability Check requires you to take an Action unless a rule says otherwise. Several of the named Actions—such as <a href="#ec_hide">Hide</a> and <a href="#ec_influence">Influence</a>—include Ability Checks.</p>
+            <p>The <abbr title="Dungeon Master"></abbr> may override this requirement and allow a particular Ability Check to be made as part of a Bonus Action or as no Action at all.</p>
+            <h4>Difficulty Class</h4>
+            <p>The <abbr title="Dungeon Master">DM</abbr> determines the Difficulty Class of an Ability Check and can override a DC specified in the rules. The Typical Difficulty Class table shows the most common DCs.</p>
+            <p>The default DC for a check is 15, and it is rarely worth calling for an Ability Check if the DC is as low as 5, unless the potential failure is narratively interesting.</p>
+            <table class="t1">
+               <caption>Typical Difficulty Class</caption>
+               <tr>
+                  <th>Task Difficulty</th>
+                  <th>DC</th>
+               </tr>
+               <tr>
+                  <td>Very Easy</td>
+                  <td>5</td>
+               </tr>
+               <tr>
+                  <td>Easy</td>
+                  <td>10</td>
+               </tr>
+               <tr>
+                  <td>Medium</td>
+                  <td>15</td>
+               </tr>
+               <tr>
+                  <td>Hard</td>
+                  <td>20</td>
+               </tr>
+               <tr>
+                  <td>Very Hard</td>
+                  <td>25</td>
+               </tr>
+               <tr>
+                  <td>Nearly Impossible</td>
+                  <td>30</td>
+               </tr>
+            </table>
+
+            <h3 id="ec_arcane_spells"><span>Arcane Spells</span></h3>
+            <p>An <a href="">Arcane Spell</a> draws on the ambient magic of the multiverse. <a href="">Bards</a>, <a href="">Sorcerers</a>, <a href="">Warlocks</a>, and <a href="">Wizards</a> harness this magic, as do <a href="">Artificers</a>.</p>
+
+            <h3 id="ec_armor_training"><span>Armor Training</span></h3>
+            <p>Armor Training is the new name for Armor Proficiency. Any existing rule that involves Armor Proficiency now applies to Armor Training.</p>
+            <p>If you wear Light, Medium, or Heavy Armor and lack Armor Training with that type of Armor, you have Disadvantage on any <a href="#ec_d20_test">d20 Test</a> you make that involves Strength or Dexterity, and you can&#39;t cast Spells.</p>
+            <p>If you equip a Shield and lack ArmorTraining with Shields, you don&#39;t gain the Armor Class bonus of the Shield.</p>
+
+            <h3 id="ec_artisans_tool"><span>Artisan&#39;s Tools</span></h3>
+            <p>Artisan&#39;s Tools are a category of tool with which a character can gain <a href="#ec_tool_proficiency">Tool Proficiency</a>. For a list of Artisan&#39;s Tools, see the 2014 <i>Player&#39;s Handbook</i>, but ignore the prices there; those tools now cost 15 <abbr title="gold pieces">GP</abbr> apiece.</p>
+
+            <h3 id="ec_attack"><span>Attack [Action]</span></h3>
+            <p>When you take the Attack Action, you can make one attack with a Weapon or an <a href="#ec_unarmed_strike">Unarmed Strike</a>.</p>
+            <h4>Equipping Weapons</h4>
+            <p>You can equip or unequip one Weapon before or after any attack you make as part of this Action, even if the attack is with an <a href="#ec_unarmed_strike">Unarmed Strike</a>.</p>
+            <h4>Moving Between Attacks</h4>
+            <p>If you <a href="#ec_move">Move</a> on your turn, you can use some or all of that movement to move between the attacks of this Action if you have a feature, such as Extra Attack, that gives you more than one attack as part of the Attack Action.</p>
+
+            <h3 id="ec_attack_roll"><span>Attack Roll</span></h3>
+            <p>The Attack Roll is one of three types of <a href="#ec_d20_test">d20 Tests</a>. This <i>Unearthed Arcana</i> article uses the rules for attack rolls and critical hits found in the 2014 <i>Player&#39;s Handbook</i>.</p>
+
+            <h3 id="ec_barkskin"><span>Barkskin [Spell]</span></h3>
+            <p>Here&#39;s a new version of the <i>Barkskin</i> Spell.</p>
+            <h4>Barkskin</h4>
+            <p class="it">2nd-Level Transmutation Spell (Primal)</p>
+            <p><b>Casting Time:</b> Bonus Action <br><b>Range:</b> Touch <br><b>Components:</b> V, S, M (a handful of bark) <br><b>Duration:</b> Concentration, up to 1 hour</p>
+            <p>You touch one willing creature to protect it with regenerating bark. Until the Spell ends, the target&#39;s skin assumes a bark-like appearance, and at the start of each of the target&#39;s turns, the target gains a number of Temporary Hit Points equal to your Spellcasting Ability Modifier plus your Proficiency Bonus.</p>
+            <p><b class="it">At Higher Levels.</b> When you cast this Spell using a Spell Slot of 3rd level or higher, you can target one additional willing creature for each slot level above 2nd.</p>
+
+            <h3 id="ec_blindsight">Blindsight</h3>
+            <p>If you have Blindsight, you can effectively see within a specific range without relying on physical sight.Within that range, you can effectively see anything that isn&#39;t behind Total Cover, even if you&#39;re Blinded or in Darkness. Moreover, you can effectively see a <a href="#ec_hidden">Hidden</a> or an <a href="#ec_invisible">Invisible</a> creature in that range.</p>
+
+            <h3 id="ec_climb_speed">Climb Speed</h3>
+            <p>A Climb Speed can be used to move on a vertical surface without expending the extra movement normally associated with climbing. A Climb Speed can also be used in any situation in which your Speed is usable.</p>
+            <p>Some creatures have the Spider Climb trait, which allows their Climb Speed to work even on the underside of horizontal surfaces.</p>
+
+            <h3 id="ec_creature_type"><span>Creature Type</span></h3>
+            <p>Every creature in <abbr title="Dungeons & Dragons">D&#38;D</abbr>, including every player character, has a special tag in the rules that identifies the type of creature they are. Most player characters are of the Humanoid type.<br>Here&#39;s a list of the game&#39;s Creature Types in alphabetical order:</p>
+            <table class="t1">
+               <caption>Creature Types</caption>
+               <tr>
+                  <td>Aberration</td>
+                  <td>Beast</td>
+                  <td>Celestial</td>
+                  <td>Construct</td>
+               </tr>
+               <tr>
+                  <td>Dragon</td>
+                  <td>Elemental</td>
+                  <td>Fey</td>
+                  <td>Fiend</td>
+               </tr>
+               <tr>
+                  <td>Giant</td>
+                  <td>Humanoid</td>
+                  <td>Monstrosity</td>
+                  <td>Ooze</td>
+               </tr>
+               <tr>
+                  <td>Plant</td>
+                  <td>Undead</td>
+                  <td></td>
+                  <td></td>
+               </tr>
+            </table>
+            <p>These types don&#39;t have rules themselves, but some rules in the game affect creatures of certain types in different ways. For example, the description of <a href=""><i>Cure Wounds</i></a> specifies that the Spell doesn&#39;t benefit a Construct.</p>
+
+            <h3 id="ec_d20_test"><span>D20 Test</span></h3>
+            <p>The term d20 Test encompasses the three main d20 rolls of the game: <a href="#ec_ability_check">Ability Checks</a>, <a href="#ec_attack_roll">Attack Rolls</a>, and Saving Throws. If something in the game affects d20 Tests, it affects all three of those rolls.</p>
+            <p>Whenever a player character rolls a 1 for a d20 Test, that character gains <a href="#ec_heroic_inspiration">Heroic Inspiration</a>.</p>
+            <p>The DM determines whether a d20 Test is warranted in any given circumstance.</p>
+
+            <h3 id="ec_dash"><span>Dash [Action]</span></h3>
+            <p>Taking the Dash Action allows you to make a bonus <a href="#ec_move">Move</a> during the current turn.</p>
+
+            <h3 id="ec_difficult_terrain"><span>Difficult Terrain</span></h3>
+            <p>If a space is Difficult Terrain, every foot of movement in that space costs 1 extra foot. For example, moving 5 feet through Difficult Terrain costs 10 feet of movement. Difficult Terrain isn&#39;t cumulative; either a space is Difficult Terrain or it isn&#39;t.</p>
+            <p>A space is Difficult Terrain for a creature if the space contains any of the following:</p>
+            <ul class="ind">
+               <li>Creature that isn&#39;t Tiny</li>
+               <li>Furniture that is Small or larger</li>
+               <li>Heavy snow</li>
+               <li>Heavy undergrowth</li>
+               <li>Ice</li>
+               <li>Liquid that&#39;s between shin- and waist-deep (any deeper and you need to Swim)</li>
+               <li>Narrow opening that is sized for a creature one Size smaller</li>
+               <li>Pit or another gap of 2-5 feet</li>
+               <li>Rubble</li>
+               <li>Slope of 20 degrees or more</li>
+            </ul>
+            <p>The <abbr title="Dungeon Master">DM</abbr> may determine that other things count as Difficult Terrain based on the examples here.</p>
+
+            <h3 id="ec_divine_spells"><span>Divine Spells</span></h3>
+            <p>A <a href="">Divine Spell</a> draws on the power of gods and the Outer Planes. Clerics and Paladins harness this magic.</p>
+
+            <h3 id="ec_exhausted">Exhausted [Condition]</h3>
+            <p>While you are subjected to the Exhausted Condition (known in older books as Exhaustion), you experience the following effects:</p>
+            <p class="ind"><b>&bull; Levels of Exhaustion.</b> This Condition is cumulative. Each time you receive it, you gain 1 level of exhaustion. You die if your exhaustion level exceeds10.</p>
+            <p class="ind"><b>&bull; d20 Rolls Affected.</b> When you make a <a href="#ec_d20_test">d20 Test</a>, you subtract your exhaustion level from the d20 roll.</p>
+            <p class="ind"><b>&bull; Spell Save <abbr title="Difficulty Classes">DCs</abbr> Affected.</b> Subtract your exhaustion level from the Spellsave DC of any Spell you cast.</p>
+            <p class="ind"><b>&bull; Ending the Condition.</b> Finishing a <a href="#ec_long_rest">Long Rest</a> removes 1 of your levels of exhaustion. When your exhaustion level reaches 0, you are no longer Exhausted.</p>
+
+            <h3 id="ec_expertise"><span>Expertise</span></h3>
+            <p>Expertise is a special feature that enhances your use of a particular Skill Proficiency. If you gain Expertise, you gain it in one Skill in which you have Proficiency. You can never have Expertise in the same Skill Proficiency more than once.</p>
+            <p>When you make an <a href="#ec_ability_check">Ability Check</a> with a Skill Proficiency in which you have Expertise, your Proficiency Bonus is doubled for that check.</p>
+
+            <h3 id="ec_fly_speed"><span>Fly Speed</span></h3>
+            <p>A Fly Speed can be used to move through the air. While you have a Fly Speed, you can stay aloft until you land, fall, or die.</p>
+            <p>While flying, you fall if you are <a href="#ec_incapacitated">Incpacitated</a> or Restrained. If you have the Hover trait, you can stay aloft even while <a href="#ec_incapacitated">Incpacitated</a> or Restrained.</p>
+
+            <h3 id="ec_gaming_set"><span>Gaming Set</span></h3>
+            <p>Gaming Sets are a category of tool with which a character can gain Tool Proficiency. For a list of Gaming Sets, see the 2014 <i>Player&#39s;s Handbook</i>, but ignore the prices there; those sets now cost 1 <abbr title="gold piece">GP</abbr> apiece.</p>
+
+            <h3 id="ec_grappled"><span>Grappled [Condition]</span></h3>
+            <p>While you are Grappled, you experience the following effects:</p>
+            <p class="ind"><b>&bull; Speed 0.</b> Your speed is 0 and can&#39;t change.</p>
+            <p class="ind"><b>&bull; Attacks Affected.</b> You have Disadvantage on <a href="#ec_attack_roll">Attack Rolls</a> against any target other than the grappler.</p>
+            <p class="ind"><b>&bull; Movable.</b> The grappler can drag or carry you, but the grappler suffers the <a href="#ec_slowed">Slowed Condition</a> while moving, unless you are Tiny or two or more Sizes smaller than the grappler.</p>
+            <p class="ind"><b>&bull; Escape.</b> While Grappled, you can make a Dexterity or Strength Saving Throw against the grapple&#39;s escape <abbr title="Difficulty Class">DC</abbr> at the end of each of your turns, ending the Condition on yourself on a success. The Condition also ends if the grappler is <a href="#ec_incapacitated">Incapacitated</a> or if something moves you outside the grapple&#39;s range without using your Speed.</p>
+
+            <h3 id="ec_guidance">Guidance [Spell]</h3>
+            <p>Here&#39;s a new version of the <i>Guidance</i> Spell.</p>
+            <h4>Guidance</h4>
+            <p class="it">0-Level Divivnation Spell (Divine, Primal)</p>
+            <p><b>Casting Time:</b> Reaction, which you take in response to you or an ally within 30 feet of youfailing an Ability Check
+               <br><b>Range:</b> 30 feet
+               <br><b>Components:</b> V, S
+               <br><b>Duration:</b> Instantaneous</p>
+            <p>You channel magical insight to the creature who failed the Ability Check. That creature can roll a d4 and add the number rolled to the check, potentially turning it into a success.</p>
+            <p>Once a creature rolls the die for this Spell, that creature can&#39;t benefit from the Spell again until the creature finishes a Long Rest.</p>
+
+            <h3 id="ec_help">Help [Action]</h3>
+            <p>When you take the Help Action, you do one of the following:</p>
+            <p class="ind"><b>Assist Ability Check.</b> Choose one of your Skill Proficiencies and one ally who can see or hear you. You give Advantage to the next Ability Check that ally makes with the chosen Skill. This benefit expires if the ally doesn&#39;t use it before the start of your next turn. To give this assistance, you must be near enough to the ally to assist verbally or physically when the ally makes the check. The DM has final say on whether your assistance is possible.</p>
+            <p class="ind"><b>Assist Attack Roll.</b> You momentarily distract an enemy within 5 feet of you, granting Advantage to the next <a href="#ec_attack_roll">Attack Roll</a> by one of your allies against thatenemy. This benefit expires at the start of your next turn.</p>
+
+            <h3 id="ec_heroic_inspiration">Heroic Inspiration</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+
+            <h3 id="ec_"></h3>
+
+            <h3 id="ec_"></h3>
+
+            <h3 id="co_incapacitated"><span>Incapacitated [Condition]</span></h3>
+            <p>While you are Incapacitated, you experience the following effects:</p>
+            <p class="ind"><b>&bull; Inactive.</b> You can&#39;t take Actions or Reactions.</p>
+            <p class="ind"><b>&bull; No Concentration.</b> Your Concentration is broken.</p>
+            <p class="ind"><b>&bull; Speechless.</b>You can&#39;t speak.</p>
+            <p class="ind"><b>&bull; Surprised.</b> If you are Incapacitated when you roll Initiative, you have Disadvantage on the roll.</p>
+
+            <h3 id="co_inspiration"><span>Inspiration</span></h3>
+            <p>When you have Inspiration, you can expend it to give yourself Advantage on a d20 Test. You must decide to do so before rolling the die.</p>
+            <h4>Gaining Inspiration</h4>
+            <p>The main way a character gains Inspiration is by rolling a 20 for a d20 Test. The <abbr title="Dungeon Master">DM</abbr> can also award Inspiration to a character who&#39;s done something that is particularly heroic or amusing.</p>
+            <h4>Only One at a Time</h4>
+            <p>You can never have more than one instance of Inspiration. If something gives you Inspiration and you already have it, you can give Inspiration to a player character in your group who lacks it.</p>
+            <h4>Losing Inspiration</h4>
+            <p>If you still have Inspiration when you start a <a href="#co_long_rest">Long Rest</a>, you lose that Inspiration.</p>
+
+            <h3 id="co_long_rest"><span>Long Rest</span></h3>
+            <p>A Long Rest is a period of extended downtime—at least 8 hours long—during which a creature sleeps for at least 6 hours and performs no more than 2 hours of light activity, such as reading, talking, eating, or standing watch.
+            </p>
+            <h4>Benefits of the Rest</h4>
+            <p>At the end of a Long Rest, a creature regains all lost Hit Points. The creature also regains spent Hit Dice, up to half of the creature&#39;s total number of them (round down; minimum of one die).</p>
+            <p>A creature can&#39;t benefit from more than one Long Rest in a 24-hour period, and a creature must have at least 1 Hit Point at the start of the rest to gain its benefits.</p>
+            <h4>Interrupting the Rest</h4>
+            <p>If a Long Rest is interrupted by combat or by 1 hour of walking, casting Spells, or similar activity, the rest confers no benefit and must be restarted; however, if the rest was at least 1 hour long before the interruption, the creature gains the benefits of a Short Rest.</p>
+
+            <h3 id="co_musical_instrument"><span>Musical Instrument</span></h3>
+            <p>Musical Instruments are a category of tool with which a character can gain <a href="#co_tool_proficiency">Tool Proficiency</a>. For a list of Musical Instruments, see the 2014 <i>Player&#39;s Handbook</i>, but ignore the prices there; those instruments now cost 20 <abbr title="gold pieces">GP</abbr> apiece.</p>
+
+            <h3 id="co_primal_spells"><span>Primal Spells</span></h3>
+            <p>A <a href="">Primal Spell</a> draws on the forces of nature and the Inner Planes. Druids and Rangers harness this magic. </p>
+
+            <h3 id="co_slowed"><span>Slowed [Condition]</span></h3>
+            <p>Whileyou are Slowed, you experience the following effects:</p>
+            <p class="ind"><b>&bull; Limited Movement.</b> You must spend 1 extra foot of movement for every foot you move using your Speed.</p>
+            <p class="ind"><b>&bull; Attacks Affected.</b> Attack rolls against you have Advantage.</p>
+            <p class="ind"><b>&bull; Dexterity Saves Affected.</b> You have Disadvantage on Dexterity saving throws.</p>
+
+            <h3 id="co_tool_proficiency"><span>Tool Proficiency</span></h3>
+            <p>If you have Proficiency with a tool, you can add your Proficiency Bonus to any ability check you make that uses that tool. If you have Proficiency in the Skill that&#39;s also used with that check, you have Advantage on the check too. This functionality means you can benefit from both Skill Proficiency and Tool Proficiency on the same ability check.</p>
+
+            <h3 id="co_tremorsense"><span>Tremorsense</span></h3>
+            <p>A creature with Tremorsense can pinpoint the location of creatures and moving objects within a specific range, provided that the creature with Tremorsense and anything it&#39;s detecting are both in contact with the same surface (such as the ground, a wall, or a ceiling) or the same liquid.</p>
+            <p>Tremorsense can&#39;t detect creatures or objects in the air, and Tremorsense doesn&#39;t count as a form of sight.</p>
+
+            <h3 id="co_unarmed_strike"><span>Unarmed Strike</span></h3>
+            <p>An Unarmed Strike is a melee attack that involves you using your body to damage, grapple, or shove a target within your Reach.</p>
+            <p>Your bonus to hit with an Unarmed Strike equals your Strength modifier plus your Proficiency Bonus. On a hit, your Unarmed Strike causes one of the following effects of your choice:</p>
+            <p class="ind"><b>&bull; Damage.</b> The target takes Bludgeoning Damage equal to 1 + your Strength modifier.</p>
+            <p class="ind"><b>&bull; Grapple.</b> The target is <a href="#co_grappled">Grappled</a>, and the grapple&#39;s escape DC equals 8 + your Strength modifier + your Proficiency Bonus. This grapple is possible only if the target is no more than one Size larger than you and if you have a hand free to grab the target.</p>
+            <p class="ind"><b>&bull; Shove.</b> You either push the target 5 feet away or knock the target Prone. This shove is possible only if the target is no more than one Size larger than you.</p>
+
+
          </div>
+
 
          <aside>
             <section class="toc">
                <div>Table of Contents</div>
+
+               <span class="up" style="font-size: 10px; color: #786B3D;"><i class="fa-solid fa-turn-up"></i></span>
+               <script>
+                  $("span.up").click(function() {
+                  $("span.up").css("display", "none");
+                  $("span.down").css("display", "inline");
+                  $("aside ul").css("display", "none");});
+               </script>
+               
+               <span class="down" style="font-size: 10px; color: #786B3D;"><i class="fa-solid fa-turn-down"></i></span>
+               <script>
+                  $("span.down").click(function() {
+                  $("span.down").css("display", "none");
+                  $("span.up").css("display", "inline");
+                  $("aside ul").css("display", "block");});
+               </script>
             </section>
-            <ul></ul>
-         </aside><!--Page Nav-->
+
+            <ul>
+               <li class="ind"><a href="#character_origins">Character Origins</a></li>
+                  <li class="ind"><a class="ind" href="#co_arcane_spells">Arcane Spells</a></li>
+                  <li class="ind"><a class="ind" href="#co_artisans_tools">Artisan&#39;s Tools</a></li>
+                  <li class="ind"><a class="ind" href="#co_creature_type">Creature Type</a></li>
+                  <li class="ind"><a class="ind" href="#co_d20_test">D20 Test</a></li>
+                  <li class="ind"><a class="ind" href="#co_divine_spells">Divine Spells</a></li>
+                  <li class="ind"><a class="ind" href="#co_gaming_set">Gaming Set</a></li>
+                  <li class="ind"><a class="ind" href="#co_grappled">Grappled</a></li>
+                  <li class="ind"><a class="ind" href="#co_incapacitated">Incapacitated</a></li>
+                  <li class="ind"><a class="ind" href="#co_inspiration">Inspiration</a></li>
+                  <li class="ind"><a class="ind" href="#co_long_rest">Long Rest</a></li>
+                  <li class="ind"><a class="ind" href="#co_musical_instrument">Musical Instrument</a></li>
+                  <li class="ind"><a class="ind" href="#co_primal_spells">Primal Spells</a></li>
+                  <li class="ind"><a class="ind" href="#co_slowed">Slowed</a></li>
+                  <li class="ind"><a class="ind" href="#co_tool_proficiency">Tool Proficiency</a></li>
+                  <li class="ind"><a class="ind" href="#co_tremorsense">Tremorsense</a></li>
+                  <li class="ind"><a class="ind" href="#co_unarmed_strike">Unarmed Strike</a></li>
+            </ul>
+         </aside>
       </div>
    </main>
 </body>
